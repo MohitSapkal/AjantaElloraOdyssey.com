@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Booking | AjantaElloraOdyssey.com</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .guide-section {
+            padding: 80px 0 100px;
+            background-color: var(--bg-alt);
+        }
+
+        .guide-options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .guide-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+        }
+
+        .guide-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: var(--transition-normal);
+            transform-origin: left;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .guide-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .guide-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .guide-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .guide-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Form Styling additions */
+        .form-container {
+            background: var(--bg-card);
+            padding: 4rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-md);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1.2rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-light);
+            background: var(--bg-light);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            outline: none;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+
+        select.form-input {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+            background-size: 1em;
+            cursor: pointer;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Language Tags preview */
+        .language-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .lang-tag {
+            padding: 8px 16px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @media (max-width: 900px) {
+            .guide-options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                AjantaEllora<span>Odyssey.com</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="tours.html">All Tours</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header (Hero) -->
+    <section class="page-header"
+        style="background: linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.9)), url('images/hero-bg.png') center/cover; padding: 180px 0 100px; text-align: center;">
+        <div class="container reveal">
+            <h1
+                style="font-size: 4rem; margin-bottom: 20px; color: var(--text-light); text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                Expert Guide Services</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+                We provide licensed and experienced tourist guides to bring the heritage of Maharashtra to life.
+            </p>
+        </div>
+    </section>
+
+    <section class="guide-section">
+        <div class="container">
+
+            <div style="text-align: center; margin-bottom: 3rem;" class="reveal">
+                <h2 style="font-size: 2.2rem; color: var(--text-main); margin-bottom: 1rem;">Flexible Guiding Options
+                </h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                    Whether you need a quick overview or a multi-day companion, our licensed guides are available on
+                    request to suit your exact itinerary.
+                </p>
+            </div>
+
+            <div class="guide-options-grid reveal">
+                <!-- Option 1 -->
+                <div class="guide-card reveal stagger-1">
+                    <i class="fas fa-map-pin guide-icon"></i>
+                    <h3>Per Site</h3>
+                    <p>Perfect for focused exploration. Hire a specialized expert specifically for Ajanta, Ellora, or
+                        local city monuments.</p>
+                </div>
+                <!-- Option 2 -->
+                <div class="guide-card reveal stagger-1">
+                    <i class="fas fa-calendar-day guide-icon"></i>
+                    <h3>Per Day</h3>
+                    <p>Ideal for full-day sightseeing. Keep the same knowledgeable guide with you as you travel between
+                        multiple locations in a day.</p>
+                </div>
+                <!-- Option 3 -->
+                <div class="guide-card reveal stagger-1">
+                    <i class="fas fa-route guide-icon"></i>
+                    <h3>Complete Itinerary</h3>
+                    <p>The ultimate holistic experience. Have a dedicated guide accompany you throughout your entire
+                        multi-day journey with us.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 2rem;" class="reveal">
+                <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 1rem;">Multilingual Experts</h3>
+                <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem;">We offer guiding services
+                    in several international languages to ensure you don't miss any details.</p>
+                <div class="language-tags">
+                    <span class="lang-tag"><i class="fas fa-language"></i> English</span>
+                    <span class="lang-tag"><i class="fas fa-language"></i> German</span>
+                    <span class="lang-tag"><i class="fas fa-language"></i> Spanish</span>
+                    <span class="lang-tag"><i class="fas fa-language"></i> French</span>
+                    <span class="lang-tag"><i class="fas fa-language"></i> Italian</span>
+                    <span class="lang-tag"><i class="fas fa-language"></i> Japanese</span>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="form-container reveal">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--text-main);">Book a
+                    Guide</h2>
+
+                <form id="guide-booking-form">
+
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--primary); font-family: 'Outfit';">
+                        Details</h3>
+
+                    <div class="form-grid">
+                        <div>
+                            <label for="name" class="form-label">Full Name*</label>
+                            <input type="text" id="name" class="form-input" required placeholder="Enter your full name">
+                        </div>
+                        <div>
+                            <label for="email" class="form-label">Email Address*</label>
+                            <input type="email" id="email" class="form-input" required placeholder="Enter your email">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div>
+                            <label for="phone" class="form-label">Phone Number*</label>
+                            <input type="tel" id="phone" class="form-input" required
+                                placeholder="Enter your phone number">
+                        </div>
+                        <div>
+                            <label for="date" class="form-label">Starting Date*</label>
+                            <input type="date" id="date" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <h3
+                        style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--primary); font-family: 'Outfit'; border-top: 1px solid var(--border-light); padding-top: 2rem;">
+                        Requirements</h3>
+
+                    <div class="form-grid">
+                        <div>
+                            <label for="arrangement" class="form-label">Guiding Arrangement*</label>
+                            <select id="arrangement" class="form-input" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="site">Per Site</option>
+                                <option value="day">Per Day</option>
+                                <option value="complete">Complete Itinerary</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="language" class="form-label">Preferred Language*</label>
+                            <select id="language" class="form-input" required>
+                                <option value="" disabled selected>Choose language</option>
+                                <option value="english">English</option>
+                                <option value="german">German (Deutsch)</option>
+                                <option value="spanish">Spanish (Español)</option>
+                                <option value="french">French (Français)</option>
+                                <option value="italian">Italian (Italiano)</option>
+                                <option value="japanese">Japanese (日本語)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 2.5rem;">
+                        <label for="details" class="form-label">Specific Sites or Itinerary Details</label>
+                        <textarea id="details" class="form-input" rows="4"
+                            placeholder="E.g., Need a guide only for Ajanta Caves on the 12th, or need a French guide for the full 3-day Classic Tour..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; padding: 1.2rem; font-size: 1.1rem; border-radius: var(--radius-sm);">Request
+                        Guide Booking <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="logo">
+                    AjantaEllora<span>Odyssey.com</span>
+                </a>
+                <p>Bringing the timeless heritage of Maharashtra to life through carefully curated, premium travel
+                    experiences. Your gateway to Ajanta, Ellora, and beyond.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="tours.html">All Tours</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="tours.html">Heritage Tours</a></li>
+                    <li><a href="taxi-rental.html">Taxi Rental</a></li>
+                    <li><a href="guide-booking.html">Guide Services</a></li>
+                    <li><a href="contact.html">Customized Planning</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Contact</h4>
+                <ul class="footer-links">
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-map-marker-alt"
+                            style="color: var(--primary); margin-right: 10px;"></i> Chhatrapati Sambhajinagar,
+                        Maharashtra</li>
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-phone-alt"
+                            style="color: var(--primary); margin-right: 10px;"></i> +91 98765 43210</li>
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-envelope"
+                            style="color: var(--primary); margin-right: 10px;"></i> info@ajantaelloraodyssey.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AjantaElloraOdyssey.com Tours & Travels. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

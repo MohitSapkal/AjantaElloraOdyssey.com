@@ -1,0 +1,488 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Rental | AjantaElloraOdyssey.com</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .vehicle-section {
+            padding: 80px 0 100px;
+            background-color: #ffffff;
+            /* pure white background just like the reference */
+        }
+
+        .vehicle-selector {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 5rem;
+            flex-wrap: wrap;
+        }
+
+        .vehicle-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            outline: none;
+        }
+
+        .vehicle-icon-ring {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: #f4f4f4;
+            /* Light gray circle */
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #777;
+            /* Default icon color */
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* Hover state */
+        .vehicle-btn:hover .vehicle-icon-ring {
+            background: #e9e9e9;
+            transform: translateY(-5px);
+        }
+
+        /* Active state */
+        .vehicle-btn.active .vehicle-icon-ring {
+            background: #ffffff;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .vehicle-btn span {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #555;
+            transition: var(--transition-normal);
+        }
+
+        .vehicle-btn.active span {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .vehicle-content-wrapper {
+            position: relative;
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            min-height: 480px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+            /* very soft shadow */
+            border: 1px solid #f0f0f0;
+        }
+
+        .vehicle-tab {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            /* content will touch image container */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease;
+            align-items: stretch;
+            pointer-events: none;
+        }
+
+        .vehicle-tab.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .vehicle-info {
+            padding: 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .vehicle-info h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.8rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .vehicle-info p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        .vehicle-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+        }
+
+        .vehicle-features li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .vehicle-features i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .vehicle-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fafafa;
+            padding: 3rem;
+        }
+
+        .vehicle-image img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+            transform: scale(0.95);
+        }
+
+        .vehicle-tab.active .vehicle-image {
+            animation: slideInRight 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .btn-dark {
+            background-color: #222;
+            color: #fff;
+            padding: 1.2rem 2.5rem;
+            border-radius: 4px;
+            /* match the reference rectangular button */
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: max-content;
+        }
+
+        .btn-dark:hover {
+            background-color: #000;
+            color: #fff;
+            /* keep it white */
+        }
+
+        @media (max-width: 900px) {
+            .vehicle-tab {
+                grid-template-columns: 1fr;
+                position: relative;
+                /* flow normally on mobile */
+                height: auto;
+            }
+
+            .vehicle-content-wrapper {
+                min-height: auto;
+            }
+
+            .vehicle-tab:not(.active) {
+                display: none;
+                /* remove from flow so it doesn't leave huge gaps */
+            }
+
+            .vehicle-info {
+                padding: 3rem 2rem;
+                align-items: center;
+                text-align: center;
+            }
+
+            .vehicle-features {
+                text-align: left;
+                width: max-content;
+                margin: 0 auto 2.5rem;
+            }
+
+            .vehicle-selector {
+                gap: 1.5rem;
+            }
+
+            .vehicle-icon-ring {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+
+            .vehicle-image {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                AjantaEllora<span>Odyssey.com</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header (Hero) -->
+    <section class="page-header"
+        style="background: linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.9)), url('images/taxi-placeholder.png') center/cover; padding: 180px 0 100px; text-align: center;">
+        <div class="container reveal">
+            <h1
+                style="font-size: 4rem; margin-bottom: 20px; color: var(--text-light); text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                Taxi Rental</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+                Chauffeur-driven cars for sightseeing and long-distance travel.
+            </p>
+        </div>
+    </section>
+
+    <!-- Vehicle Selection Component -->
+    <section class="vehicle-section">
+        <div class="container">
+
+            <div style="text-align: center; margin-bottom: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;"
+                class="reveal">
+                <p style="color: #666; font-size: 1.2rem; line-height: 1.8;">
+                    Well-maintained vehicles with experienced drivers familiar with heritage routes.
+                    All vehicles are arranged based on group size, comfort preference, and itinerary pace.
+                </p>
+            </div>
+
+            <!-- Custom Tab Selection -->
+            <div class="vehicle-selector reveal">
+                <button class="vehicle-btn active" onclick="selectVehicle(event, 'hatchback')">
+                    <div class="vehicle-icon-ring">
+                        <i class="fa-solid fa-car-rear"></i>
+                    </div>
+                    <span>Hatchback</span>
+                </button>
+                <button class="vehicle-btn" onclick="selectVehicle(event, 'sedan')">
+                    <div class="vehicle-icon-ring">
+                        <i class="fa-solid fa-car-side"></i>
+                    </div>
+                    <span>Sedan</span>
+                </button>
+                <button class="vehicle-btn" onclick="selectVehicle(event, 'suv')">
+                    <div class="vehicle-icon-ring">
+                        <i class="fa-solid fa-truck-pickup"></i>
+                    </div>
+                    <span>SUV</span>
+                </button>
+                <button class="vehicle-btn" onclick="selectVehicle(event, 'coach')">
+                    <div class="vehicle-icon-ring">
+                        <i class="fa-solid fa-bus-simple"></i>
+                    </div>
+                    <span>Buses</span>
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="vehicle-content-wrapper reveal">
+
+                <!-- Hatchback -->
+                <div class="vehicle-tab active" id="tab-hatchback">
+                    <div class="vehicle-info">
+                        <h2>Hatchback</h2>
+                        <p style="margin-bottom: 0.5rem;">Light on your pocket, good at comfort. The best of both
+                            worlds.</p>
+                        <p>Choose among 4+1 seater options</p>
+                        <a href="contact.html?vehicle=hatchback" class="btn-dark">BOOK A CAR <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="vehicle-image reveal-scale">
+                        <!-- Add the image you provided here by saving it as images/hatchback.png -->
+                        <img src="images/hatch.jpg" alt="Hatchback"
+                            onerror="this.src='images/hatch.jpg'">
+                    </div>
+                </div>
+
+                <!-- Sedan -->
+                <div class="vehicle-tab" id="tab-sedan">
+                    <div class="vehicle-info">
+                        <h2>Sedan</h2>
+                        <p>Travelling is always the most fun when we're all together. Perfect for couples or small
+                            families exploring the heritage routes. Enjoy a comfortable, smooth ride with ample boot
+                            space.</p>
+                        <a href="contact.html?vehicle=sedan" class="btn-dark">BOOK A CAR <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="vehicle-image reveal-scale">
+                        <img src="images/sedan.jpg" alt="Sedan">
+                    </div>
+                </div>
+
+                <!-- SUV -->
+                <div class="vehicle-tab" id="tab-suv">
+                    <div class="vehicle-info">
+                        <h2>SUV</h2>
+                        <p>Travelling is always the most fun when we're all together. Perfect for groups of 4-6 people.
+                            Higher ground clearance ensures maximum comfort, spacious interiors, and luxurious seating.
+                        </p>
+    
+                        <a href="contact.html?vehicle=suv" class="btn-dark">BOOK A CAR <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="vehicle-image reveal-scale">
+                        <img src="images/suv.jpg" alt="SUV">
+                    </div>
+                </div>
+
+                <!-- Coach -->
+                <div class="vehicle-tab" id="tab-coach">
+                    <div class="vehicle-info">
+                        <h2>Buses</h2>
+                        <p>Travelling is always the most fun when we're all together. Choose from 15 to 50 seater buses
+                            designed for comfortable long-distance group excursions.</p>
+                        
+                        <a href="contact.html?vehicle=coach" class="btn-dark">BOOK A BUS <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="vehicle-image reveal-scale">
+                        <img src="images/bus.jpg" alt="Buses">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="logo">
+                    AjantaEllora<span>Odyssey.com</span>
+                </a>
+                <p>Bringing the timeless heritage of Maharashtra to life through carefully curated, premium travel
+                    experiences. Your gateway to Ajanta, Ellora, and beyond.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="tours.html">All Tours</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="tours.html">Heritage Tours</a></li>
+                    <li><a href="taxi-rental.html">Taxi Rental</a></li>
+                    <li><a href="contact.html">Guide Services</a></li>
+                    <li><a href="contact.html">Customized Planning</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Contact</h4>
+                <ul class="footer-links">
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-map-marker-alt"
+                            style="color: var(--primary); margin-right: 10px;"></i> Chhatrapati Sambhajinagar,
+                        Maharashtra</li>
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-phone-alt"
+                            style="color: var(--primary); margin-right: 10px;"></i> +91 98765 43210</li>
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-envelope"
+                            style="color: var(--primary); margin-right: 10px;"></i> info@ajantaelloraodyssey.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AjantaElloraOdyssey.com Tours & Travels. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script>
+        function selectVehicle(event, id) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.vehicle-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Add active class to clicked button
+            const clickedBtn = event.currentTarget;
+            clickedBtn.classList.add('active');
+
+            // Hide all tabs
+            document.querySelectorAll('.vehicle-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById('tab-' + id).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

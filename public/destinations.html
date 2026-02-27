@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations | AjantaElloraOdyssey.com</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .destination-section {
+            padding: 80px 0;
+            background-color: var(--bg-alt);
+        }
+
+        .dest-card {
+            display: flex;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 4rem;
+            border: 1px solid var(--border-light);
+            transition: var(--transition-normal);
+        }
+
+        .dest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .dest-img-col {
+            flex: 0 0 45%;
+            position: relative;
+        }
+
+        .dest-img-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dest-content-col {
+            flex: 1;
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .dest-card.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .dest-title {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .dest-meta {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dest-desc {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .dest-highlights {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .dest-highlights li {
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .dest-highlights li i {
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        @media (max-width: 992px) {
+
+            .dest-card,
+            .dest-card.reverse {
+                flex-direction: column;
+            }
+
+            .dest-img-col {
+                height: 300px;
+            }
+
+            .dest-content-col {
+                padding: 3rem 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="tours.html">Tours <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem; margin-left: 2px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tour-classic.html">Classic Heritage</a></li>
+                        <li><a href="tour-compact.html">Compact Experience</a></li>
+                        <li><a href="tour-express.html">Express Heritage</a></li>
+                        <li><a href="tour-nature.html">Heritage & Nature</a></li>
+                        <li><a href="tour-deccan.html">Deccan Experience</a></li>
+                        <li><a href="tour-devotion.html">Heritage & Spiritual</a></li>
+                    </ul>
+                </li>
+                <li><a href="taxi-rental.html">Taxi Rental</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li class="nav-enquiry-btn"><a href="enquiry.html" class="btn btn-primary"
+                        style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Enquiry Now</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header (Hero) -->
+    <section class="page-header"
+        style="background: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.8)), url('images/hero-bg.png') center/cover; padding: 180px 0 100px; text-align: center;">
+        <div class="container reveal">
+            <h1
+                style="font-size: 4rem; margin-bottom: 20px; color: var(--text-light); text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                Our Destinations</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+                Explore the magnificent heritage, ancient artistry, and vibrant culture hidden deep within the heart of
+                Maharashtra.
+            </p>
+        </div>
+    </section>
+
+    <!-- Destinations Content -->
+    <section class="destination-section">
+        <div class="container">
+
+            <!-- Ajanta Caves -->
+            <div class="dest-card reveal">
+                <div class="dest-img-col">
+                    <img src="images/Ajanta.jpg" alt="Ajanta Caves">
+                </div>
+                <div class="dest-content-col">
+                    <div class="dest-meta"><i class="fas fa-landmark"></i> UNESCO World Heritage Site</div>
+                    <h2 class="dest-title">Ajanta Caves</h2>
+                    <p class="dest-desc">
+                        Dating from the 2nd century BCE to about 480 CE, the Ajanta Caves are universally regarded as
+                        masterpieces of Buddhist religious art. Nestled in a horseshoe-shaped gorge of the Waghur River,
+                        these 30 rock-cut cave monuments boast incredibly preserved mural paintings and rock-cut
+                        sculptures that vividly depict the past lives and rebirths of the Buddha, pictorial tales from
+                        Aryasura's Jatakamala, and fascinating glimpses into ancient Indian society.
+                    </p>
+                    <ul class="dest-highlights">
+                        <li><i class="far fa-clock"></i> <strong>Timings:</strong> 9:00 AM - 5:00 PM (Closed Mondays)
+                        </li>
+                        <li><i class="fas fa-ticket-alt"></i> <strong>Entry Fee (ASI):</strong> Indians: ₹40 |
+                            Foreigners: ₹600</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Distance:</strong> ~100 km from Chhatrapati
+                            Sambhajinagar</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <a href="tours.html" class="btn btn-primary" style="display: inline-block;">View Related Tours
+                            <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ellora Caves -->
+            <div class="dest-card reverse reveal">
+                <div class="dest-img-col">
+                    <img src="images/Ellora cave.jpg" alt="Ellora Caves">
+                </div>
+                <div class="dest-content-col">
+                    <div class="dest-meta"><i class="fas fa-landmark"></i> UNESCO World Heritage Site</div>
+                    <h2 class="dest-title">Ellora Caves</h2>
+                    <p class="dest-desc">
+                        Carved deep into the Charanandri hills between the 6th and 13th centuries CE, the Ellora Caves
+                        are a spectacular testament to religious harmony in ancient India. It features 34 magnificent
+                        monumental caves encompassing Buddhist, Hindu, and Jain temples sequentially built side-by-side.
+                        The crowning glory of Ellora is the awe-inspiring Kailasa Temple (Cave 16), an architectural
+                        marvel carved from a single, massive piece of solid bedrock—representing Mount Kailasha, the
+                        Himalayan abode of Lord Shiva.
+                    </p>
+                    <ul class="dest-highlights">
+                        <li><i class="far fa-clock"></i> <strong>Timings:</strong> 6:00 AM - 6:00 PM (Closed Tuesdays)
+                        </li>
+                        <li><i class="fas fa-ticket-alt"></i> <strong>Entry Fee (ASI):</strong> Indians: ₹40 |
+                            Foreigners: ₹600</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Distance:</strong> ~30 km from Chhatrapati
+                            Sambhajinagar</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <a href="tours.html" class="btn btn-primary" style="display: inline-block;">View Related Tours
+                            <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aurangabad Caves -->
+            <div class="dest-card reveal">
+                <div class="dest-img-col">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Aurangabad_Caves%2C_another_view.JPG"
+                        alt="Aurangabad Caves">
+                </div>
+                <div class="dest-content-col">
+                    <div class="dest-meta"><i class="fas fa-camera-retro"></i> Ancient Heritage</div>
+                    <h2 class="dest-title">Aurangabad Caves</h2>
+                    <p class="dest-desc">
+                        Often overshadowed by Ajanta and Ellora, the Aurangabad Caves are twelve artificial rock-cut
+                        Buddhist shrines located on a hill running roughly east to west, close to the city. Dug out of
+                        soft basalt rock during the 6th and 7th century, these caves are notable for their
+                        richly-sculpted pillars, detailed deity reliefs, and serene, contemplative atmosphere. They
+                        afford a panoramic view of the Bibi Ka Maqbara and the vast Dukhna valley.
+                    </p>
+                    <ul class="dest-highlights">
+                        <li><i class="far fa-clock"></i> <strong>Timings:</strong> 9:00 AM - 5:00 PM (Everyday)</li>
+                        <li><i class="fas fa-ticket-alt"></i> <strong>Entry Fee (ASI):</strong> Indians: ₹25 |
+                            Foreigners: ₹300</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Within Chhatrapati
+                            Sambhajinagar</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <a href="tour-classic.html" class="btn btn-primary" style="display: inline-block;">View Related
+                            Tours <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paithani Weaving Centre -->
+            <div class="dest-card reverse reveal">
+                <div class="dest-img-col">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Saree_Weaving_by_Handloom_3.jpg/800px-Saree_Weaving_by_Handloom_3.jpg"
+                        alt="Paithani Weaving Centre">
+                </div>
+                <div class="dest-content-col">
+                    <div class="dest-meta"><i class="fas fa-gem"></i> Art & Craft Heritage</div>
+                    <h2 class="dest-title">Paithani Weaving Centre</h2>
+                    <p class="dest-desc">
+                        Discover the magic of Maharashtra's heritage textile. The Paithani sari is renowned worldwide
+                        for its richness and exquisite craftsmanship, characterized by borders of oblique square design
+                        and a pallu with a Peacock design. At the authentic weaving centers, you can witness master
+                        artisans operating traditional handlooms, weaving incredibly fine silk and gold thread (zari)
+                        using techniques that have been preserved and passed down for over 2000 years.
+                    </p>
+                    <ul class="dest-highlights">
+                        <li><i class="far fa-clock"></i> <strong>Timings:</strong> 9:00 AM - 7:00 PM (Everyday)</li>
+                        <li><i class="fas fa-ticket-alt"></i> <strong>Entry Fee:</strong> Free</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Paithan / Chhatrapati
+                            Sambhajinagar</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <a href="tour-nature.html" class="btn btn-primary" style="display: inline-block;">View Related
+                            Tours <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daulatabad Fort -->
+            <div class="dest-card reveal">
+                <div class="dest-img-col">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Daulatabad_Fort_from_top.jpg/800px-Daulatabad_Fort_from_top.jpg"
+                        alt="Daulatabad Fort">
+                </div>
+                <div class="dest-content-col">
+                    <div class="dest-meta"><i class="fab fa-fort-awesome"></i> Historic Fortress</div>
+                    <h2 class="dest-title">Daulatabad Fort</h2>
+                    <p class="dest-desc">
+                        Built on a 200-meter high conical hill, Daulatabad Fort is one of the most powerful and
+                        strategic forts in India. Known as Devagiri in its early glory days, it features a complex
+                        series of layered defenses, secret subterranean passages (Andhari), and a stunning panoramic
+                        view from its summit. It temporarily served as the capital of the Tughlaq dynasty under Muhammad
+                        bin Tughluq.
+                    </p>
+                    <ul class="dest-highlights">
+                        <li><i class="far fa-clock"></i> <strong>Timings:</strong> 6:00 AM - 6:00 PM (Everyday)</li>
+                        <li><i class="fas fa-ticket-alt"></i> <strong>Entry Fee (ASI):</strong> Indians: ₹25 |
+                            Foreigners: ₹300</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> ~15 km from Chhatrapati
+                            Sambhajinagar</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <a href="tour-deccan.html" class="btn btn-primary" style="display: inline-block;">View Related
+                            Tours <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bibi Ka Maqbara -->
+            <div class="dest-card reverse reveal">
+                <div class="dest-img-col">
+                    <img src="images/Bib ka makha.jpg" alt="Bibi Ka Maqbara">
+                </div>
+                <div class="dest-content-col">
+                    <div class="dest-meta"><i class="fas fa-mosque"></i> Mughal Architecture</div>
+                    <h2 class="dest-title">Bibi Ka Maqbara</h2>
+                    <p class="dest-desc">
+                        Commissioned by Mughal Emperor Aurangzeb in the late 17th century in memory of his first wife,
+                        Dilras Banu Begum, the Bibi Ka Maqbara bears a striking resemblance to the famous Taj Mahal. It
+                        is often called the "Taj of the Deccan." The beautiful mausoleum is laid out in a Charbagh
+                        formal garden set against the backdrop of the Sihachal ranges.
+                    </p>
+                    <ul class="dest-highlights">
+                        <li><i class="far fa-clock"></i> <strong>Timings:</strong> 6:00 AM - 10:00 PM (Everyday)</li>
+                        <li><i class="fas fa-ticket-alt"></i> <strong>Entry Fee (ASI):</strong> Indians: ₹25 |
+                            Foreigners: ₹300</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Within Chhatrapati
+                            Sambhajinagar</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <a href="tour-deccan.html" class="btn btn-primary" style="display: inline-block;">View Related
+                            Tours <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lonar Crater Lake -->
+            <div class="dest-card reveal">
+                <div class="dest-img-col">
+                    <img src="images/lonar.jpg" alt="Lonar Crater Lake">
+                </div>
+                <div class="dest-content-col">
+                    <div class="dest-meta"><i class="fas fa-leaf"></i> Natural Wonder</div>
+                    <h2 class="dest-title">Lonar Crater Lake</h2>
+                    <p class="dest-desc">
+                        Lonar Lake is a profound, notified National Geo-heritage Monument located at Lonar. It is an
+                        astronomical marvel, created by a meteorite impact during the Pleistocene Epoch. Characterized
+                        by a perfectly circular basin in basaltic rock, the highly saline and alkaline lake sustains a
+                        unique ecosystem and the surroundings are dotted with ancient temples.
+                    </p>
+                    <ul class="dest-highlights">
+                        <li><i class="far fa-clock"></i> <strong>Timings:</strong> Open 24 Hours (Best during daylight)
+                        </li>
+                        <li><i class="fas fa-ticket-alt"></i> <strong>Entry Fee:</strong> Free</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Distance:</strong> ~140 km from Chhatrapati
+                            Sambhajinagar</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <a href="tour-nature.html" class="btn btn-primary" style="display: inline-block;">View Related
+                            Tours <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shirdi Sai Baba Temple -->
+            <div class="dest-card reverse reveal">
+                <div class="dest-img-col">
+                    <img src="images/sai.jpg" alt="Shirdi Sai Baba Temple">
+                </div>
+                <div class="dest-content-col">
+                    <div class="dest-meta"><i class="fas fa-om"></i> Spiritual Destination</div>
+                    <h2 class="dest-title">Shirdi Sai Baba Temple</h2>
+                    <p class="dest-desc">
+                        Shirdi is one of India's most important pilgrimage destinations, famously known as the home of
+                        the revered spiritual leader Sai Baba. Millions of devotees visit the Sai Baba Samadhi Mandir
+                        each year to seek blessings. The town emanates a deep sense of peace, faith, and devotion,
+                        housing vital sites like Dwarkamai and Chavadi connected to Baba's life.
+                    </p>
+                    <ul class="dest-highlights">
+                        <li><i class="far fa-clock"></i> <strong>Timings:</strong> 4:00 AM - 11:15 PM (Everyday)</li>
+                        <li><i class="fas fa-ticket-alt"></i> <strong>Entry Fee:</strong> Free (Paid passes available
+                            for special Aarti/Darshan)</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Distance:</strong> ~120 km from Chhatrapati
+                            Sambhajinagar</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <a href="tour-devotion.html" class="btn btn-primary" style="display: inline-block;">View Related
+                            Tours <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shani Shingnapur -->
+            <div class="dest-card reveal">
+                <div class="dest-img-col">
+                    <img src="images/shani.jpg" alt="Shani Shingnapur">
+                </div>
+                <div class="dest-content-col">
+                    <div class="dest-meta"><i class="fas fa-praying-hands"></i> Living Traditions</div>
+                    <h2 class="dest-title">Shani Shingnapur</h2>
+                    <p class="dest-desc">
+                        A unique village deeply rooted in faith, Shani Shingnapur is famous worldwide for the fact that
+                        no house in the village has doors, only door frames. The residents believe that Lord Shani
+                        (personification of the planet Saturn) protects them from theft. The open-air temple with the
+                        swayambhu (self-evolved) black stone idol of Lord Shani is the centerpiece of devotion here.
+                    </p>
+                    <ul class="dest-highlights">
+                        <li><i class="far fa-clock"></i> <strong>Timings:</strong> Open 24 Hours (Everyday)</li>
+                        <li><i class="fas fa-ticket-alt"></i> <strong>Entry Fee:</strong> Free</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Distance:</strong> ~170 km from Chhatrapati
+                            Sambhajinagar</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <a href="tour-devotion.html" class="btn btn-primary" style="display: inline-block;">View Related
+                            Tours <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
+                </a>
+                <p>Bringing the timeless heritage of Maharashtra to life through carefully curated, premium travel
+                    experiences. Your gateway to Ajanta, Ellora, and beyond.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="tours.html">All Tours</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="tours.html">Heritage Tours</a></li>
+                    <li><a href="taxi-rental.html">Taxi Rental</a></li>
+                    <li><a href="guide-booking.html">Guide Services</a></li>
+                    <li><a href="contact.html">Customized Planning</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Contact</h4>
+                <ul class="footer-links">
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-map-marker-alt"
+                            style="color: var(--primary); margin-right: 10px;"></i> Chhatrapati
+                        Sambhajinagar,Maharashtra</li>
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-phone-alt"
+                            style="color: var(--primary); margin-right: 10px;"></i> +91 95957 77723</li>
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-envelope"
+                            style="color: var(--primary); margin-right: 10px;"></i> info@ajantaelloraodyssey.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AjantaElloraOdyssey.com Tours & Travels. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

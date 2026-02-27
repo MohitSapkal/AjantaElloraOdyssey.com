@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,18 +11,34 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body class="home-page">
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                AjantaEllora<span>Odyssey.com</span>
+                <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
             </a>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="tours.html">Tours <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem; margin-left: 2px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tour-classic.html">Classic Heritage</a></li>
+                        <li><a href="tour-compact.html">Compact Experience</a></li>
+                        <li><a href="tour-express.html">Express Heritage</a></li>
+                        <li><a href="tour-nature.html">Heritage & Nature</a></li>
+                        <li><a href="tour-deccan.html">Deccan Experience</a></li>
+                        <li><a href="tour-devotion.html">Heritage & Spiritual</a></li>
+                    </ul>
+                </li>
+                <li><a href="taxi-rental.html">Taxi Rental</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
+                <li class="nav-enquiry-btn"><a href="enquiry.html" class="btn btn-primary"
+                        style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Enquiry Now</a></li>
             </ul>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -32,21 +48,40 @@
 
     <!-- Hero Section -->
     <section class="hero"
-        style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('images/hero-bg.png') center/cover no-repeat; height: 100vh; display: flex; align-items: center;">
-        <div class="container" style="text-align: center;">
-            <h1 class="reveal"
-                style="font-size: 4.5rem; margin-bottom: 20px; color: var(--text-light); text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                Discover the Ancient<br>Wonders of Maharashtra</h1>
-            <p class="reveal"
-                style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); max-width: 600px; margin: 0 auto 40px; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">
-                Experience the majestic Ajanta & Ellora caves, historical Aurangabad, and the mysterious Lonar crater
-                with premium guided tours.
+        style="position: relative; height: 100vh; display: flex; align-items: center; overflow: hidden;">
+        <!-- Background Slider -->
+        <div class="hero-slider">
+            <div class="slide active"
+                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/Ajanta.jpg') center/cover no-repeat;">
+            </div>
+            <div class="slide"
+                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/Ellora%20cave.jpg') center/cover no-repeat;">
+            </div>
+            <div class="slide"
+                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/lonar.jpg') center/cover no-repeat;">
+            </div>
+            <div class="slide"
+                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/Bib%20ka%20makha.jpg') center/cover no-repeat;">
+            </div>
+            <div class="slide"
+                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/hero-bg.png') center/cover no-repeat;">
+            </div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="container" style="position: relative; z-index: 10; text-align: center;">
+            <h1 class="typing-text"
+                style="font-size: 4.5rem; margin-bottom: 20px; color: var(--text-light); text-shadow: 0 4px 20px rgba(0,0,0,0.5); font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.1; min-height: 110px;">
+            </h1>
+            <p class="typing-paragraph"
+                style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.95); max-width: 700px; margin: 0 auto 40px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); font-family: 'Outfit', sans-serif; font-weight: 300; line-height: 1.6; min-height: 65px;">
             </p>
-            <div class="reveal" style="display: flex; gap: 20px; justify-content: center;">
-                <a href="tours.html" class="btn btn-primary">View All Tours <i class="fas fa-arrow-right"></i></a>
+            <div class="reveal stagger-3" style="display: flex; gap: 20px; justify-content: center;">
+                <a href="tours.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">View All
+                    Tours <i class="fas fa-arrow-right"></i></a>
                 <a href="enquiry.html" class="btn btn-outline"
-                    style="color: var(--primary); border-color: var(--primary);">Book Enquiry <i
-                        class="fas fa-calendar-check"></i></a>
+                    style="color: var(--primary); border: 1px solid var(--primary); padding: 1rem 2.5rem; font-size: 1.1rem;">Book
+                    Enquiry <i class="fas fa-calendar-check"></i></a>
             </div>
         </div>
     </section>
@@ -58,7 +93,8 @@
             <p class="section-subtitle">Premium Travel Experiences</p>
             <div
                 style="max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
-                <p>Welcome to AjantaElloraOdyssey.com, the premier travel company offering exclusive tour packages, luxury taxi
+                <p>Welcome to AjantaElloraOdyssey.com, the premier travel company offering exclusive tour packages,
+                    luxury taxi
                     rentals, and expert guide services across Ajanta, Ellora, Chhatrapati Sambhajinagar (Aurangabad),
                     and Lonar. With a deep passion for history and culture, we curate unforgettable experiences tailored
                     specifically for discerning global travelers.</p>
@@ -209,6 +245,35 @@
                     </div>
                 </div>
 
+                <!-- Tour 6 -->
+                <div class="card reveal stagger-1">
+                    <div class="card-img-container">
+                        <span class="badge" style="background-color: #e67e22;">Spiritual</span>
+                        <img src="images/sai.jpg" alt="Heritage & Devotion Trail" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Heritage & Devotion</h3>
+                        <div class="card-meta">
+                            <span class="meta-item"><i class="far fa-clock"></i> 4 Days / 3 Nights</span>
+                        </div>
+                        <p class="card-desc">A perfect blend of UNESCO World Heritage exploration and a deeply spiritual
+                            pilgrimage to revered shrines.</p>
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4
+                                style="font-family: 'Outfit'; font-size:1rem; color:var(--text-main); margin-bottom:0.5rem;">
+                                Key Places:</h4>
+                            <ul
+                                style="color: var(--text-muted); font-size:0.9rem; padding-left: 20px; list-style: circle;">
+                                <li>Ajanta & Ellora Caves</li>
+                                <li>Shirdi (Sai Baba)</li>
+                                <li>Shani Shingnapur</li>
+                            </ul>
+                        </div>
+                        <a href="tour-devotion.html" class="btn btn-outline"
+                            style="width: 100%; border-color: #e67e22; color: #e67e22;">View Details</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -279,7 +344,7 @@
         <div class="container footer-grid">
             <div class="footer-about">
                 <a href="index.html" class="logo">
-                    AjantaEllora<span>Odyssey.com</span>
+                    <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
                 </a>
                 <p>Bringing the timeless heritage of Maharashtra to life through carefully curated, premium travel
                     experiences. Your gateway to Ajanta, Ellora, and beyond.</p>
@@ -315,10 +380,10 @@
                 <h4 class="footer-title">Contact</h4>
                 <ul class="footer-links">
                     <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-map-marker-alt"
-                            style="color: var(--primary); margin-right: 10px;"></i> Chhatrapati Sambhajinagar,
-                        Maharashtra</li>
+                            style="color: var(--primary); margin-right: 10px;"></i> Chhatrapati
+                        Sambhajinagar,Maharashtra</li>
                     <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-phone-alt"
-                            style="color: var(--primary); margin-right: 10px;"></i> +91 98765 43210</li>
+                            style="color: var(--primary); margin-right: 10px;"></i> +91 95957 77723</li>
                     <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-envelope"
                             style="color: var(--primary); margin-right: 10px;"></i> info@ajantaelloraodyssey.com</li>
                 </ul>
@@ -328,6 +393,104 @@
             <p>&copy; 2026 AjantaElloraOdyssey.com Tours & Travels. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- WhatsApp Sticky Button -->
+    <a href="https://wa.me/919595777723" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        aria-label="Open WhatsApp Chat" title="Open WhatsApp Chat">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">Chat with Us</span>
+    </a>
+
+    <!-- Enquiry Form Popup Modal -->
+    <div id="enquiryModal" class="modal-overlay">
+        <div class="modal-content reveal-scale"
+            style="padding: 0; max-width: 800px; border-radius: 8px; overflow: hidden; border: none;">
+            <div
+                style="background-color: #043259; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+                <h2 style="color: #f6c042; font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0;">Plan
+                    Your Heritage Trail</h2>
+                <button class="modal-close"
+                    style="position: static; background: transparent; color: white; width: auto; height: auto; padding: 0;"
+                    aria-label="Close modal">
+                    <i class="fas fa-times" style="font-size: 1.5rem;"></i>
+                </button>
+            </div>
+
+            <form id="popup-enquiry-form" class="enquiry-form" style="padding: 2rem; background-color: white;">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="modal-name">Full Name *</label>
+                        <input type="text" id="modal-name" required placeholder="Mohit Sapkal">
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-phone">Phone Number *</label>
+                        <input type="tel" id="modal-phone" required placeholder="9822189121">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modal-email">Email Address</label>
+                        <input type="email" id="modal-email" placeholder="codingaiandml24@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-people">Number of People *</label>
+                        <input type="number" id="modal-people" min="1" required placeholder="23">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modal-duration">Duration *</label>
+                        <select id="modal-duration" required>
+                            <option value="2 Days">2 Days</option>
+                            <option value="1 Day">1 Day</option>
+                            <option value="3 Days">3 Days</option>
+                            <option value="4+ Days">4+ Days</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-tour">Tour Option *</label>
+                        <select id="modal-tour" required>
+                            <option value="Classic Heritage (3D/2N)">Classic Heritage (3D/2N)</option>
+                            <option value="Compact Experience">Compact Experience</option>
+                            <option value="Express Heritage">Express Heritage</option>
+                            <option value="Heritage & Nature">Heritage & Nature</option>
+                            <option value="Deccan Experience">Deccan Experience</option>
+                            <option value="Heritage & Spiritual">Heritage & Spiritual</option>
+                            <option value="Custom Tour">Custom Tour</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modal-hotel">Hotel Category</label>
+                        <select id="modal-hotel">
+                            <option value="3 Star">3 Star</option>
+                            <option value="4 Star">4 Star</option>
+                            <option value="5 Star">5 Star</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-vehicle">Vehicle Type</label>
+                        <select id="modal-vehicle">
+                            <option value="AC Sedan">AC Sedan</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Tempo Traveller">Tempo Traveller</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label for="modal-date">Date of Journey *</label>
+                        <input type="date" id="modal-date" required>
+                    </div>
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label for="modal-message">Special Requirements</label>
+                        <textarea id="modal-message" rows="3" placeholder=""></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary"
+                    style="width: 100%; margin-top: 1.5rem; background-color: #eeb12a; color: #121212; font-weight: 700; border-radius: 5px; padding: 1rem; font-size: 1.1rem; text-transform: uppercase; border: none;">
+                    SEND ENQUIRY VIA WHATSAPP
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- Custom JS -->
     <script src="js/script.js"></script>

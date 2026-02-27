@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,13 +17,28 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                AjantaEllora<span>Odyssey.com</span>
+                <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="tours.html" class="active">All Tours</a></li>
+                <li class="dropdown">
+                    <a href="tours.html">Tours <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem; margin-left: 2px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tour-classic.html">Classic Heritage</a></li>
+                        <li><a href="tour-compact.html">Compact Experience</a></li>
+                        <li><a href="tour-express.html">Express Heritage</a></li>
+                        <li><a href="tour-nature.html">Heritage & Nature</a></li>
+                        <li><a href="tour-deccan.html">Deccan Experience</a></li>
+                        <li><a href="tour-devotion.html">Heritage & Spiritual</a></li>
+                    </ul>
+                </li>
+                <li><a href="taxi-rental.html">Taxi Rental</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
+                <li class="nav-enquiry-btn"><a href="enquiry.html" class="btn btn-primary"
+                        style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Enquiry Now</a></li>
             </ul>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -183,6 +198,35 @@
                     </div>
                 </div>
 
+                <!-- Tour 6 -->
+                <div class="card reveal stagger-1">
+                    <div class="card-img-container">
+                        <span class="badge" style="background-color: #e67e22;">Spiritual</span>
+                        <img src="images/tour-placeholder.png" alt="Heritage & Devotion Trail" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Option 6: Heritage & Devotion</h3>
+                        <div class="card-meta">
+                            <span class="meta-item"><i class="far fa-clock"></i> 4 Days / 3 Nights</span>
+                        </div>
+                        <p class="card-desc">A perfect blend of UNESCO World Heritage exploration and a deeply spiritual
+                            pilgrimage to revered shrines.</p>
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4
+                                style="font-family: 'Outfit'; font-size:1rem; color:var(--text-main); margin-bottom:0.5rem;">
+                                Key Places:</h4>
+                            <ul
+                                style="color: var(--text-muted); font-size:0.9rem; padding-left: 20px; list-style: circle;">
+                                <li>Ajanta & Ellora Caves</li>
+                                <li>Shirdi (Sai Baba)</li>
+                                <li>Shani Shingnapur</li>
+                            </ul>
+                        </div>
+                        <a href="tour-devotion.html" class="btn btn-outline"
+                            style="width: 100%; border-color: #e67e22; color: #e67e22;">View Details</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -192,7 +236,7 @@
         <div class="container footer-grid">
             <div class="footer-about">
                 <a href="index.html" class="logo">
-                    AjantaEllora<span>Odyssey.com</span>
+                    <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
                 </a>
                 <p>Bringing the timeless heritage of Maharashtra to life through carefully curated, premium travel
                     experiences. Your gateway to Ajanta, Ellora, and beyond.</p>
@@ -218,8 +262,8 @@
                 <h4 class="footer-title">Our Services</h4>
                 <ul class="footer-links">
                     <li><a href="tours.html">Heritage Tours</a></li>
-                    <li><a href="contact.html">Taxi Rental</a></li>
-                    <li><a href="contact.html">Guide Services</a></li>
+                    <li><a href="taxi-rental.html">Taxi Rental</a></li>
+                    <li><a href="guide-booking.html">Guide Services</a></li>
                     <li><a href="contact.html">Customized Planning</a></li>
                 </ul>
             </div>
@@ -228,10 +272,10 @@
                 <h4 class="footer-title">Contact</h4>
                 <ul class="footer-links">
                     <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-map-marker-alt"
-                            style="color: var(--primary); margin-right: 10px;"></i> Chhatrapati Sambhajinagar,
-                        Maharashtra</li>
+                            style="color: var(--primary); margin-right: 10px;"></i> Chhatrapati
+                        Sambhajinagar,Maharashtra</li>
                     <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-phone-alt"
-                            style="color: var(--primary); margin-right: 10px;"></i> +91 98765 43210</li>
+                            style="color: var(--primary); margin-right: 10px;"></i> +91 95957 77723</li>
                     <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-envelope"
                             style="color: var(--primary); margin-right: 10px;"></i> info@ajantaelloraodyssey.com</li>
                 </ul>

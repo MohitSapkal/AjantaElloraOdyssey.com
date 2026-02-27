@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -177,13 +177,28 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                AjantaEllora<span>Odyssey.com</span>
+                <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="tours.html">Tours <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem; margin-left: 2px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tour-classic.html">Classic Heritage</a></li>
+                        <li><a href="tour-compact.html">Compact Experience</a></li>
+                        <li><a href="tour-express.html">Express Heritage</a></li>
+                        <li><a href="tour-nature.html">Heritage & Nature</a></li>
+                        <li><a href="tour-deccan.html">Deccan Experience</a></li>
+                        <li><a href="tour-devotion.html">Heritage & Spiritual</a></li>
+                    </ul>
+                </li>
+                <li><a href="taxi-rental.html">Taxi Rental</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="tours.html">All Tours</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
+                <li class="nav-enquiry-btn"><a href="enquiry.html" class="btn btn-primary"
+                        style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Enquiry Now</a></li>
             </ul>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -208,39 +223,6 @@
         <div class="container">
 
             <div style="text-align: center; margin-bottom: 3rem;" class="reveal">
-                <h2 style="font-size: 2.2rem; color: var(--text-main); margin-bottom: 1rem;">Flexible Guiding Options
-                </h2>
-                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
-                    Whether you need a quick overview or a multi-day companion, our licensed guides are available on
-                    request to suit your exact itinerary.
-                </p>
-            </div>
-
-            <div class="guide-options-grid reveal">
-                <!-- Option 1 -->
-                <div class="guide-card reveal stagger-1">
-                    <i class="fas fa-map-pin guide-icon"></i>
-                    <h3>Per Site</h3>
-                    <p>Perfect for focused exploration. Hire a specialized expert specifically for Ajanta, Ellora, or
-                        local city monuments.</p>
-                </div>
-                <!-- Option 2 -->
-                <div class="guide-card reveal stagger-1">
-                    <i class="fas fa-calendar-day guide-icon"></i>
-                    <h3>Per Day</h3>
-                    <p>Ideal for full-day sightseeing. Keep the same knowledgeable guide with you as you travel between
-                        multiple locations in a day.</p>
-                </div>
-                <!-- Option 3 -->
-                <div class="guide-card reveal stagger-1">
-                    <i class="fas fa-route guide-icon"></i>
-                    <h3>Complete Itinerary</h3>
-                    <p>The ultimate holistic experience. Have a dedicated guide accompany you throughout your entire
-                        multi-day journey with us.</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-bottom: 2rem;" class="reveal">
                 <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 1rem;">Multilingual Experts</h3>
                 <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem;">We offer guiding services
                     in several international languages to ensure you don't miss any details.</p>
@@ -255,7 +237,7 @@
             </div>
 
             <!-- Booking Form -->
-            <div class="form-container reveal">
+            <div class="form-container reveal" id="booking-form">
                 <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--text-main);">Book a
                     Guide</h2>
 
@@ -308,10 +290,10 @@
                                 <option value="" disabled selected>Choose language</option>
                                 <option value="english">English</option>
                                 <option value="german">German (Deutsch)</option>
-                                <option value="spanish">Spanish (Español)</option>
-                                <option value="french">French (Français)</option>
+                                <option value="spanish">Spanish (Espa�ol)</option>
+                                <option value="french">French (Fran�ais)</option>
                                 <option value="italian">Italian (Italiano)</option>
-                                <option value="japanese">Japanese (日本語)</option>
+                                <option value="japanese">Japanese (???)</option>
                             </select>
                         </div>
                     </div>
@@ -336,7 +318,7 @@
         <div class="container footer-grid">
             <div class="footer-about">
                 <a href="index.html" class="logo">
-                    AjantaEllora<span>Odyssey.com</span>
+                    <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
                 </a>
                 <p>Bringing the timeless heritage of Maharashtra to life through carefully curated, premium travel
                     experiences. Your gateway to Ajanta, Ellora, and beyond.</p>
@@ -372,10 +354,10 @@
                 <h4 class="footer-title">Contact</h4>
                 <ul class="footer-links">
                     <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-map-marker-alt"
-                            style="color: var(--primary); margin-right: 10px;"></i> Chhatrapati Sambhajinagar,
-                        Maharashtra</li>
+                            style="color: var(--primary); margin-right: 10px;"></i> Chhatrapati
+                        Sambhajinagar,Maharashtra</li>
                     <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-phone-alt"
-                            style="color: var(--primary); margin-right: 10px;"></i> +91 98765 43210</li>
+                            style="color: var(--primary); margin-right: 10px;"></i> +91 95957 77723</li>
                     <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-envelope"
                             style="color: var(--primary); margin-right: 10px;"></i> info@ajantaelloraodyssey.com</li>
                 </ul>
@@ -388,6 +370,19 @@
 
     <!-- Custom JS -->
     <script src="js/script.js"></script>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,de', // Only English and German as requested
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>

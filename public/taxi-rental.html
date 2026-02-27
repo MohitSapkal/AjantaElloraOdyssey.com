@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -270,12 +270,28 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                AjantaEllora<span>Odyssey.com</span>
+                <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="tours.html">Tours <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem; margin-left: 2px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tour-classic.html">Classic Heritage</a></li>
+                        <li><a href="tour-compact.html">Compact Experience</a></li>
+                        <li><a href="tour-express.html">Express Heritage</a></li>
+                        <li><a href="tour-nature.html">Heritage & Nature</a></li>
+                        <li><a href="tour-deccan.html">Deccan Experience</a></li>
+                        <li><a href="tour-devotion.html">Heritage & Spiritual</a></li>
+                    </ul>
+                </li>
+                <li><a href="taxi-rental.html">Taxi Rental</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
+                <li class="nav-enquiry-btn"><a href="enquiry.html" class="btn btn-primary"
+                        style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Enquiry Now</a></li>
             </ul>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -310,11 +326,11 @@
 
             <!-- Custom Tab Selection -->
             <div class="vehicle-selector reveal">
-                <button class="vehicle-btn active" onclick="selectVehicle(event, 'hatchback')">
+                <button class="vehicle-btn active" onclick="selectVehicle(event, 'tempo')">
                     <div class="vehicle-icon-ring">
-                        <i class="fa-solid fa-car-rear"></i>
+                        <i class="fa-solid fa-van-shuttle"></i>
                     </div>
-                    <span>Hatchback</span>
+                    <span>Traveller & Tempo</span>
                 </button>
                 <button class="vehicle-btn" onclick="selectVehicle(event, 'sedan')">
                     <div class="vehicle-icon-ring">
@@ -322,11 +338,11 @@
                     </div>
                     <span>Sedan</span>
                 </button>
-                <button class="vehicle-btn" onclick="selectVehicle(event, 'suv')">
+                <button class="vehicle-btn" onclick="selectVehicle(event, 'crysta')">
                     <div class="vehicle-icon-ring">
-                        <i class="fa-solid fa-truck-pickup"></i>
+                        <i class="fa-solid fa-car"></i>
                     </div>
-                    <span>SUV</span>
+                    <span>Crysta</span>
                 </button>
                 <button class="vehicle-btn" onclick="selectVehicle(event, 'coach')">
                     <div class="vehicle-icon-ring">
@@ -339,20 +355,19 @@
             <!-- Tab Content -->
             <div class="vehicle-content-wrapper reveal">
 
-                <!-- Hatchback -->
-                <div class="vehicle-tab active" id="tab-hatchback">
+                <!-- Traveller & Tempo -->
+                <div class="vehicle-tab active" id="tab-tempo">
                     <div class="vehicle-info">
-                        <h2>Hatchback</h2>
-                        <p style="margin-bottom: 0.5rem;">Light on your pocket, good at comfort. The best of both
-                            worlds.</p>
-                        <p>Choose among 4+1 seater options</p>
-                        <a href="contact.html?vehicle=hatchback" class="btn-dark">BOOK A CAR <i
-                                class="fas fa-arrow-right"></i></a>
+                        <h2>Traveller & Tempo</h2>
+                        <p style="margin-bottom: 0.5rem;">Ideal for mid-sized groups and extended families. Comfortable
+                            seating and ample space for luggage.</p>
+                        <p>Choose among 12 to 17 seater options</p>
+                        <a href="https://wa.me/919595777723?text=Request%20to%20Rental%20car%20%3A-%0Atransport%20Category%20%3A%20Traveller%20%26%20Tempo"
+                            target="_blank" class="btn-dark">BOOK NOW <i class="fab fa-whatsapp"
+                                style="color:#25D366; font-size:1.2em;"></i></a>
                     </div>
                     <div class="vehicle-image reveal-scale">
-                        <!-- Add the image you provided here by saving it as images/hatchback.png -->
-                        <img src="images/hatch.jpg" alt="Hatchback"
-                            onerror="this.src='images/hatch.jpg'">
+                        <img src="images/traveller.jpg" alt="Traveller & Tempo">
                     </div>
                 </div>
 
@@ -363,27 +378,29 @@
                         <p>Travelling is always the most fun when we're all together. Perfect for couples or small
                             families exploring the heritage routes. Enjoy a comfortable, smooth ride with ample boot
                             space.</p>
-                        <a href="contact.html?vehicle=sedan" class="btn-dark">BOOK A CAR <i
-                                class="fas fa-arrow-right"></i></a>
+                        <a href="https://wa.me/919595777723?text=Request%20to%20Rental%20car%20%3A-%0Atransport%20Category%20%3A%20Sedan"
+                            target="_blank" class="btn-dark">BOOK NOW <i class="fab fa-whatsapp"
+                                style="color:#25D366; font-size:1.2em;"></i></a>
                     </div>
                     <div class="vehicle-image reveal-scale">
                         <img src="images/sedan.jpg" alt="Sedan">
                     </div>
                 </div>
 
-                <!-- SUV -->
-                <div class="vehicle-tab" id="tab-suv">
+                <!-- Crysta -->
+                <div class="vehicle-tab" id="tab-crysta">
                     <div class="vehicle-info">
-                        <h2>SUV</h2>
+                        <h2>Crysta</h2>
                         <p>Travelling is always the most fun when we're all together. Perfect for groups of 4-6 people.
                             Higher ground clearance ensures maximum comfort, spacious interiors, and luxurious seating.
                         </p>
-    
-                        <a href="contact.html?vehicle=suv" class="btn-dark">BOOK A CAR <i
-                                class="fas fa-arrow-right"></i></a>
+
+                        <a href="https://wa.me/919595777723?text=Request%20to%20Rental%20car%20%3A-%0Atransport%20Category%20%3A%20Crysta"
+                            target="_blank" class="btn-dark">BOOK NOW <i class="fab fa-whatsapp"
+                                style="color:#25D366; font-size:1.2em;"></i></a>
                     </div>
                     <div class="vehicle-image reveal-scale">
-                        <img src="images/suv.jpg" alt="SUV">
+                        <img src="images/crysta.jpg" alt="Crysta">
                     </div>
                 </div>
 
@@ -393,9 +410,10 @@
                         <h2>Buses</h2>
                         <p>Travelling is always the most fun when we're all together. Choose from 15 to 50 seater buses
                             designed for comfortable long-distance group excursions.</p>
-                        
-                        <a href="contact.html?vehicle=coach" class="btn-dark">BOOK A BUS <i
-                                class="fas fa-arrow-right"></i></a>
+
+                        <a href="https://wa.me/919595777723?text=Request%20to%20Rental%20car%20%3A-%0Atransport%20Category%20%3A%20Buses"
+                            target="_blank" class="btn-dark">BOOK NOW <i class="fab fa-whatsapp"
+                                style="color:#25D366; font-size:1.2em;"></i></a>
                     </div>
                     <div class="vehicle-image reveal-scale">
                         <img src="images/bus.jpg" alt="Buses">
@@ -411,7 +429,7 @@
         <div class="container footer-grid">
             <div class="footer-about">
                 <a href="index.html" class="logo">
-                    AjantaEllora<span>Odyssey.com</span>
+                    <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
                 </a>
                 <p>Bringing the timeless heritage of Maharashtra to life through carefully curated, premium travel
                     experiences. Your gateway to Ajanta, Ellora, and beyond.</p>
@@ -438,7 +456,7 @@
                 <ul class="footer-links">
                     <li><a href="tours.html">Heritage Tours</a></li>
                     <li><a href="taxi-rental.html">Taxi Rental</a></li>
-                    <li><a href="contact.html">Guide Services</a></li>
+                    <li><a href="guide-booking.html">Guide Services</a></li>
                     <li><a href="contact.html">Customized Planning</a></li>
                 </ul>
             </div>
@@ -447,10 +465,10 @@
                 <h4 class="footer-title">Contact</h4>
                 <ul class="footer-links">
                     <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-map-marker-alt"
-                            style="color: var(--primary); margin-right: 10px;"></i> Chhatrapati Sambhajinagar,
-                        Maharashtra</li>
+                            style="color: var(--primary); margin-right: 10px;"></i> Chhatrapati
+                        Sambhajinagar,Maharashtra</li>
                     <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-phone-alt"
-                            style="color: var(--primary); margin-right: 10px;"></i> +91 98765 43210</li>
+                            style="color: var(--primary); margin-right: 10px;"></i> +91 95957 77723</li>
                     <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-envelope"
                             style="color: var(--primary); margin-right: 10px;"></i> info@ajantaelloraodyssey.com</li>
                 </ul>

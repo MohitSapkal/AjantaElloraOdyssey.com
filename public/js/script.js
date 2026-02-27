@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="custom-lang-switcher">
                 <a href="#" class="lang-btn" data-lang="en">EN</a>
                 <span class="lang-divider">|</span>
-                <a href="#" class="lang-btn" data-lang="de">DE</a>
+                <a href="#" class="lang-btn" data-lang="de">GE</a>
             </div>
             <div id="google_translate_element" style="display:none;"></div>
         `;

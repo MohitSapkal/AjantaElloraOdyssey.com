@@ -52,10 +52,10 @@
         <!-- Background Slider -->
         <div class="hero-slider">
             <div class="slide active"
-                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/Ajanta.jpg') center/cover no-repeat;">
+                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/hero-bg.png') center/cover no-repeat;">
             </div>
             <div class="slide"
-                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/Ellora%20cave.jpg') center/cover no-repeat;">
+                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/Ajanta.jpg') center/cover no-repeat;">
             </div>
             <div class="slide"
                 style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/lonar.jpg') center/cover no-repeat;">
@@ -64,7 +64,7 @@
                 style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/Bib%20ka%20makha.jpg') center/cover no-repeat;">
             </div>
             <div class="slide"
-                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/hero-bg.png') center/cover no-repeat;">
+                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/tour-placeholder.png') center/cover no-repeat;">
             </div>
         </div>
 
@@ -79,9 +79,8 @@
             <div class="reveal stagger-3" style="display: flex; gap: 20px; justify-content: center;">
                 <a href="tours.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">View All
                     Tours <i class="fas fa-arrow-right"></i></a>
-                <a href="enquiry.html" class="btn btn-outline"
-                    style="color: var(--primary); border: 1px solid var(--primary); padding: 1rem 2.5rem; font-size: 1.1rem;">Book
-                    Enquiry <i class="fas fa-calendar-check"></i></a>
+                <a href="taxi-rental.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+                    Book a car<i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -472,6 +471,26 @@
                             <option value="AC Sedan">AC Sedan</option>
                             <option value="SUV">SUV</option>
                             <option value="Tempo Traveller">Tempo Traveller</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modal-guide">Book a tour guide *</label>
+                        <select id="modal-guide" required>
+                            <option value="" disabled selected>Select option</option>
+                            <option value="Yes, I Required">Yes, I Required</option>
+                            <option value="Not required">Not required</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="modal-guide-language-group" style="display: none;">
+                        <label for="modal-guide-language">Guide Language</label>
+                        <select id="modal-guide-language">
+                            <option value="English" selected>English (Default)</option>
+                            <option value="French">French</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Japanese">Japanese</option>
                         </select>
                     </div>
 

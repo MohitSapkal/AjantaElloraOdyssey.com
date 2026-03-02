@@ -213,6 +213,32 @@
                                 <option value="5star">5-Star / Luxury Options</option>
                             </select>
                         </div>
+
+                        <!-- Guide Booking -->
+                        <h3
+                            style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary); font-family: 'Outfit'; border-top: 1px solid var(--border-light); padding-top: 2rem;">
+                            Guide Booking</h3>
+
+                        <div class="form-grid">
+                            <div>
+                                <label for="guide" class="form-label">Book a tour guide*</label>
+                                <select id="guide" class="form-input" required>
+                                    <option value="" disabled selected>Select option</option>
+                                    <option value="Yes, I Required">Yes, I Required</option>
+                                    <option value="Not required">Not required</option>
+                                </select>
+                            </div>
+                            <div id="guide-language-group" style="display: none;">
+                                <label for="guide-language" class="form-label">Guide Language</label>
+                                <select id="guide-language" class="form-input">
+                                    <option value="English" selected>English (Default)</option>
+                                    <option value="French">French</option>
+                                    <option value="Spanish">Spanish</option>
+                                    <option value="Italian">Italian</option>
+                                    <option value="Japanese">Japanese</option>
+                                </select>
+                            </div>
+                        </div>
                         <div style="margin-bottom: 2.5rem;">
                             <label for="notes" class="form-label">Notes (Special Requirements)</label>
                             <textarea id="notes" class="form-input" rows="5"

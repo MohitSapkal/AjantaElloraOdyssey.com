@@ -220,6 +220,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Detailed Enquiry Form (enquiry.html) - Redirects to WhatsApp
     const detailedEnquiryForm = document.getElementById('detailed-enquiry-form');
+    // Guide language toggle for detail form
+    const guideSelect = document.getElementById('guide');
+    const guideLanguageGroup = document.getElementById('guide-language-group');
+    if (guideSelect && guideLanguageGroup) {
+        guideSelect.addEventListener('change', (e) => {
+            if (e.target.value === 'Yes, I Required') {
+                guideLanguageGroup.style.display = 'block';
+            } else {
+                guideLanguageGroup.style.display = 'none';
+            }
+        });
+    }
+
     if (detailedEnquiryForm) {
         detailedEnquiryForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -239,24 +252,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 vehicle: document.getElementById('vehicle')?.value || 'Not specified',
                 accommodation: document.getElementById('accommodation')?.value || 'Not specified',
                 hotel: document.getElementById('hotel')?.value || 'Not specified',
+                guide: document.getElementById('guide')?.value || 'Not specified',
+                guideLanguage: document.getElementById('guide-language')?.value || 'Not specified',
                 notes: document.getElementById('notes')?.value || 'None'
             };
 
             // Format WhatsApp Message
-            const message = `*New Detailed Enquiry Request*%0A%0A`
-                + `*Name:* ${data.name}%0A`
-                + `*Phone:* ${data.phone}%0A`
-                + `*Email:* ${data.email}%0A%0A`
-                + `*Journey Details:*%0A`
-                + `- Date: ${data.date}%0A`
-                + `- Duration: ${data.duration} Days%0A`
-                + `- People: ${data.people}%0A`
-                + `- Tour Option: ${data.tour}%0A%0A`
-                + `*Requirements:*%0A`
-                + `- Vehicle: ${data.vehicle}%0A`
-                + `- Accommodation: ${data.accommodation}%0A`
-                + `- Hotel Category: ${data.hotel}%0A%0A`
-                + `*Notes/Special Requests:*%0A${data.notes}`;
+            const message = `Hello %0A%0A`
+                + `I’m interested in book a tour package and would to get more details. Here are my travel details:%0A`
+                + `My name is ${data.name}%0A`
+                + `Phone Number: ${data.phone}%0A`
+                + `Email: ${data.email}%0A`
+                + `We are planning to travel on ${data.date} for ${data.duration} days.%0A`
+                + `There will be ${data.people} people.%0A`
+                + `We are interested in the ${data.tour} package.%0A`
+                + `We would need a ${data.vehicle} and Hotel Category ${data.hotel}.%0A`
+                + `Also, please let me know about guide availability In ${data.guideLanguage}%0A`
+                + `If possible, we have a few special requests:%0A`
+                + `${data.notes}%0A`
+                + `Kindly share the availability and pricing details.%0A`
+                + `Thank you so much !`;
 
             // Redirect to WhatsApp
             const whatsappUrl = `https://wa.me/919595777723?text=${message}`;
@@ -344,6 +359,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Guide language toggle for modal form
+        const modalGuideSelect = document.getElementById('modal-guide');
+        const modalGuideLanguageGroup = document.getElementById('modal-guide-language-group');
+        if (modalGuideSelect && modalGuideLanguageGroup) {
+            modalGuideSelect.addEventListener('change', (e) => {
+                if (e.target.value === 'Yes, I Required') {
+                    modalGuideLanguageGroup.style.display = 'block';
+                } else {
+                    modalGuideLanguageGroup.style.display = 'none';
+                }
+            });
+        }
+
         // Handle popup enquiry form submission via WhatsApp
         const popupForm = document.getElementById('popup-enquiry-form');
         if (popupForm) {
@@ -363,21 +391,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 const people = document.getElementById('modal-people').value || 'Not specified';
                 const hotel = document.getElementById('modal-hotel').value || 'Not specified';
                 const vehicle = document.getElementById('modal-vehicle').value || 'Not specified';
+                const guide = document.getElementById('modal-guide')?.value || 'Not specified';
+                const guideLanguage = document.getElementById('modal-guide-language')?.value || 'Not specified';
                 const travelDate = document.getElementById('modal-date').value || 'Not specified';
                 const message = document.getElementById('modal-message').value || 'None';
 
                 // Generate WhatsApp formatted message
-                const rawMessage = `Hello, I am interested in:\n\n` +
-                    `Name: ${name}\n` +
-                    `Phone: ${phone}\n` +
+                const rawMessage = `Hello 😊\n\n` +
+                    `I’m interested in booking a tour and would to get more details. Here are my travel details:\n` +
+                    `My name is ${name}\n` +
+                    `Phone Number: ${phone}\n` +
                     `Email: ${email}\n` +
-                    `Tour Option: ${tour}\n` +
-                    `Duration: ${duration}\n` +
-                    `People: ${people}\n` +
-                    `Hotel Category: ${hotel}\n` +
-                    `Vehicle: ${vehicle}\n` +
-                    `Date: ${travelDate}\n` +
-                    `Special Requirements: ${message}`;
+                    `We are planning to travel on ${travelDate} for ${duration} days.\n` +
+                    `There will be ${people} people.\n` +
+                    `We are interested in the ${tour} package.\n` +
+                    `We would need a ${vehicle} and Hotel Category ${hotel}.\n` +
+                    `Also, please let me know about guide availability In ${guideLanguage}\n` +
+                    `If possible, we have a few special requests:\n` +
+                    `${message}\n` +
+                    `Kindly share the availability and pricing details.\n` +
+                    `Thank you so much ! 😊`;
 
                 const encodedMessage = encodeURIComponent(rawMessage);
                 const whatsappUrl = `https://wa.me/919595777723?text=${encodedMessage}`;

@@ -956,3 +956,18 @@ body {
     background-color: transparent !important;
     box-shadow: none !important;
 }
+/* Custom Layout Utilities */
+.tour-layout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+@media (max-width: 992px) {
+    .tour-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+

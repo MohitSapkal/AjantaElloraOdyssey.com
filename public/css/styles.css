@@ -93,8 +93,10 @@ a {
     transition: var(--transition-fast);
 }
 
-ul {
-    list-style: none;
+ul,
+ol,
+li {
+    list-style: none !important;
 }
 
 img {

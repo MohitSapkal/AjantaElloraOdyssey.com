@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="#" class="lang-btn" data-lang="en">EN</a>
                 <span class="lang-divider">|</span>
                 <a href="#" class="lang-btn" data-lang="de">GE</a>
+                <span class="lang-divider">|</span>
+                <a href="#" class="lang-btn" data-lang="ja">JA</a>
             </div>
             <div id="google_translate_element" style="display:none;"></div>
         `;
@@ -21,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.googleTranslateElementInit = function () {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
-                includedLanguages: 'en,de',
+                includedLanguages: 'en,de,ja',
                 autoDisplay: false
             }, 'google_translate_element');
         };

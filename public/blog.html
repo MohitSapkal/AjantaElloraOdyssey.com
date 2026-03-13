@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | AjantaElloraOdyssey.com</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Blog Page Specific Styles */
+        .blog-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('images/hero-bg.png') center/cover no-repeat;
+            padding: 180px 0 100px;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .blog-header-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .blog-header-subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        .blog-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .blog-card:hover .blog-img {
+            transform: scale(1.08);
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .blog-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .blog-meta i {
+            color: var(--primary);
+        }
+
+        .blog-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            transition: var(--transition-fast);
+        }
+
+        .blog-title:hover {
+            color: var(--primary);
+        }
+
+        .blog-excerpt {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .blog-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-light);
+            padding-top: 1.5rem;
+            margin-top: auto;
+        }
+
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--bg-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            border: 1px solid var(--border-light);
+        }
+
+        .author-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .author-role {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .read-more-btn {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-fast);
+        }
+
+        .read-more-btn i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            color: var(--primary-hover);
+        }
+
+        .read-more-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 4rem;
+        }
+
+        .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border-light);
+            color: var(--text-main);
+            font-weight: 600;
+            transition: var(--transition-fast);
+        }
+
+        .page-link:hover, .page-link.active {
+            background-color: var(--primary);
+            color: var(--text-light);
+            border-color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .blog-header {
+                padding: 140px 0 80px;
+            }
+            .blog-header-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="tours.html">Tours <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem; margin-left: 2px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tour-classic.html">Classic Heritage</a></li>
+                        <li><a href="tour-compact.html">Compact Experience</a></li>
+                        <li><a href="tour-express.html">Express Heritage</a></li>
+                        <li><a href="tour-nature.html">Heritage & Nature</a></li>
+                        <li><a href="tour-deccan.html">Deccan Experience</a></li>
+                        <li><a href="tour-devotion.html">Heritage & Spiritual</a></li>
+                    </ul>
+                </li>
+                <li><a href="taxi-rental.html">Taxi Rental</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li class="nav-enquiry-btn"><a href="enquiry.html" class="btn btn-primary"
+                        style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Enquiry Now</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Blog Header Section -->
+    <header class="blog-header">
+        <div class="container reveal">
+            <h1 class="blog-header-title">Our Travel Journal</h1>
+            <p class="blog-header-subtitle">Discover insights, historical tales, and travel tips for your journey through Maharashtra's heritage sites.</p>
+        </div>
+    </header>
+
+    <!-- Blog Posts Section -->
+    <section class="section" style="background-color: var(--bg-alt);">
+        <div class="container">
+            <div id="admin-controls" style="display: none; justify-content: flex-end; margin-bottom: 2rem;">
+                <a href="new-blog.html" class="btn btn-primary" id="new-blog-btn"><i class="fas fa-plus"></i> Post New Blog</a>
+            </div>
+            <div class="blog-grid">
+
+                <!-- Blog Post 1 -->
+                <article class="blog-card reveal stagger-1">
+                    <div class="blog-img-wrapper">
+                        <span class="blog-category">History</span>
+                        <img src="images/Ajanta.jpg" alt="Ajanta Caves" class="blog-img" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> March 12, 2026</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h2 class="blog-title"><a href="#">The Hidden Secrets of Ajanta Caves Murals</a></h2>
+                        <p class="blog-excerpt">Uncover the fascinating stories depicted in the ancient Buddhist murals of Ajanta. Learn about the techniques used by artisans over two millennia ago to create these timeless masterpieces...</p>
+                        
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <div class="author-avatar"><i class="fas fa-user-pen"></i></div>
+                                <div>
+                                    <div class="author-name">Rajesh Kumar</div>
+                                    <div class="author-role">Heritage Expert</div>
+                                </div>
+                            </div>
+                            <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card reveal stagger-2">
+                    <div class="blog-img-wrapper">
+                        <span class="blog-category">Travel Guide</span>
+                        <img src="images/lonar.jpg" alt="Lonar Crater" class="blog-img" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> March 10, 2026</span>
+                            <span><i class="far fa-clock"></i> 4 min read</span>
+                        </div>
+                        <h2 class="blog-title"><a href="#">A Complete Guide to Exploring Lonar Crater</a></h2>
+                        <p class="blog-excerpt">Everything you need to know before visiting the incredible hyper-velocity meteorite impact crater. Discover the best times to visit, nearby temples, and the unique ecology of the lake...</p>
+                        
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <div class="author-avatar"><i class="fas fa-camera"></i></div>
+                                <div>
+                                    <div class="author-name">Priya Sharma</div>
+                                    <div class="author-role">Travel Photographer</div>
+                                </div>
+                            </div>
+                            <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card reveal stagger-3">
+                    <div class="blog-img-wrapper">
+                        <span class="blog-category">Architecture</span>
+                        <img src="images/Ellora cave.jpg" alt="Ellora Kailasanatha Temple" class="blog-img" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> March 08, 2026</span>
+                            <span><i class="far fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h2 class="blog-title"><a href="#">Kailasa Temple: The Monolithic Marvel of Ellora</a></h2>
+                        <p class="blog-excerpt">Dive deep into the architectural brilliance of the Kailasa Temple at Ellora Caves. Carved entirely out of a single piece of rock perfectly from top to bottom, it remains an engineering marvel...</p>
+                        
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <div class="author-avatar"><i class="fas fa-archway"></i></div>
+                                <div>
+                                    <div class="author-name">Dr. Amit Patel</div>
+                                    <div class="author-role">Historian</div>
+                                </div>
+                            </div>
+                            <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card reveal stagger-1">
+                    <div class="blog-img-wrapper">
+                        <span class="blog-category">Tips</span>
+                        <img src="images/Daulatabad.jpg" alt="Daulatabad Fort" class="blog-img" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> March 05, 2026</span>
+                            <span><i class="far fa-clock"></i> 3 min read</span>
+                        </div>
+                        <h2 class="blog-title"><a href="#">5 Essential Tips for Trekking Daulatabad Fort</a></h2>
+                        <p class="blog-excerpt">Conquering the invincible fortress of Daulatabad requires preparation. Here are our top 5 tips for making the climb easier and appreciating the intricate defense mechanisms of Devagiri...</p>
+                        
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <div class="author-avatar"><i class="fas fa-hiking"></i></div>
+                                <div>
+                                    <div class="author-name">Vikram Singh</div>
+                                    <div class="author-role">Tour Guide</div>
+                                </div>
+                            </div>
+                            <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card reveal stagger-2">
+                    <div class="blog-img-wrapper">
+                        <span class="blog-category">Culture</span>
+                        <img src="images/Bib ka makha.jpg" alt="Bibi Ka Maqbara" class="blog-img" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> March 01, 2026</span>
+                            <span><i class="far fa-clock"></i> 4 min read</span>
+                        </div>
+                        <h2 class="blog-title"><a href="#">Bibi Ka Maqbara: The Taj of the Deccan</a></h2>
+                        <p class="blog-excerpt">Often compared to the Taj Mahal, the Bibi Ka Maqbara has its own unique charm and history. Learn about the Mughal influence in Aurangabad and the story of Dilras Banu Begum...</p>
+                        
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <div class="author-avatar"><i class="fas fa-crown"></i></div>
+                                <div>
+                                    <div class="author-name">Neha Desai</div>
+                                    <div class="author-role">Culture Editor</div>
+                                </div>
+                            </div>
+                            <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-card reveal stagger-3">
+                    <div class="blog-img-wrapper">
+                        <span class="blog-category">Spiritual</span>
+                        <img src="images/sai.jpg" alt="Shirdi Sai Baba" class="blog-img" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> February 25, 2026</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h2 class="blog-title"><a href="#">Planning Your Spiritual Visit to Shirdi</a></h2>
+                        <p class="blog-excerpt">A comprehensive guide for devotees planning to seek the blessings of Sai Baba. We cover the best timings for darshan, accommodation options, and neighboring spiritual sites to include...</p>
+                        
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <div class="author-avatar"><i class="fas fa-om"></i></div>
+                                <div>
+                                    <div class="author-name">Anand Joshi</div>
+                                    <div class="author-role">Spiritual Tours Head</div>
+                                </div>
+                            </div>
+                            <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination reveal">
+                <a href="#" class="page-link"><i class="fas fa-chevron-left"></i></a>
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
+                </a>
+                <p>Bringing the timeless heritage of Maharashtra to life through carefully curated, premium travel
+                    experiences. Your gateway to Ajanta, Ellora, and beyond.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="tours.html">All Tours</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="tours.html">Heritage Tours</a></li>
+                    <li><a href="taxi-rental.html">Taxi Rental</a></li>
+                    <li><a href="guide-booking.html">Guide Services</a></li>
+                    <li><a href="contact.html">Customized Planning</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Contact</h4>
+                <ul class="footer-links">
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-map-marker-alt"
+                            style="color: var(--primary); margin-right: 10px;"></i> Chhatrapati
+                        Sambhajinagar,Maharashtra</li>
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-phone-alt"
+                            style="color: var(--primary); margin-right: 10px;"></i> +91 95957 77723</li>
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-envelope"
+                            style="color: var(--primary); margin-right: 10px;"></i> info@ajantaelloraodyssey.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AjantaElloraOdyssey.com Tours & Travels. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Sticky Button -->
+    <a href="https://wa.me/919595777723" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        aria-label="Open WhatsApp Chat" title="Open WhatsApp Chat">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">Chat with Us</span>
+    </a>
+
+    <!-- Admin Check Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Simple client-side admin check
+            // To view as admin, add ?admin=true to the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('admin') === 'true') {
+                localStorage.setItem('isAdmin', 'true');
+            } else if (urlParams.get('admin') === 'false') {
+                localStorage.removeItem('isAdmin');
+            }
+
+            if (localStorage.getItem('isAdmin') === 'true') {
+                const adminControls = document.getElementById('admin-controls');
+                if (adminControls) {
+                    adminControls.style.display = 'flex';
+                }
+            }
+        });
+    </script>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

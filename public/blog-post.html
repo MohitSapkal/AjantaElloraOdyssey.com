@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | AjantaElloraOdyssey.com</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .post-header {
+            padding: 150px 0 80px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('images/hero-bg.png') center/cover no-repeat;
+            color: white;
+            text-align: center;
+        }
+
+        .post-container {
+            max-width: 900px;
+            margin: -100px auto 60px;
+            background: white;
+            padding: 4rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding-bottom: 1.5rem;
+        }
+
+        .post-meta span i {
+            color: var(--primary);
+            margin-right: 5px;
+        }
+
+        .post-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .post-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .post-content h2, .post-content h3 {
+            margin: 2.5rem 0 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .post-image-full {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .back-to-blogs {
+            margin-bottom: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-blogs:hover {
+            transform: translateX(-5px);
+        }
+
+        .share-post {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .share-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .share-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        .share-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .post-container {
+                margin: -60px 15px 40px;
+                padding: 2rem;
+            }
+            .post-header {
+                padding: 120px 0 100px;
+            }
+            .post-image-full {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="tours.html">Tours <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem; margin-left: 2px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tour-classic.html">Classic Heritage</a></li>
+                        <li><a href="tour-compact.html">Compact Experience</a></li>
+                        <li><a href="tour-express.html">Express Heritage</a></li>
+                        <li><a href="tour-nature.html">Heritage & Nature</a></li>
+                        <li><a href="tour-deccan.html">Deccan Experience</a></li>
+                        <li><a href="tour-devotion.html">Heritage & Spiritual</a></li>
+                    </ul>
+                </li>
+                <li><a href="taxi-rental.html">Taxi Rental</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li class="nav-enquiry-btn"><a href="enquiry.html" class="btn btn-primary"
+                        style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Enquiry Now</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Post Header -->
+    <header class="post-header">
+        <div class="container">
+            <h1 id="post-title-header" class="reveal" style="font-size: 2.5rem; max-width: 800px; margin: 0 auto; font-family: 'Playfair Display', serif;">Loading...</h1>
+        </div>
+    </header>
+
+    <!-- Post Content Section -->
+    <main class="section" style="background-color: var(--bg-alt); padding-top: 0;">
+        <div class="container">
+            <div class="post-container">
+                <a href="blog.html" class="back-to-blogs"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+                
+                <div id="post-loading">
+                    <p style="text-align: center; padding: 50px;">Fetching the magic of Maharashtra...</p>
+                </div>
+
+                <article id="post-article" style="display: none;">
+                    <div class="post-meta">
+                        <span id="post-author"></span>
+                        <span id="post-date"></span>
+                    </div>
+
+                    <img id="post-image" src="" alt="" class="post-image-full" onerror="this.src='images/tour-placeholder.png'">
+
+                    <div id="post-content" class="post-content">
+                        <!-- Content will be injected here -->
+                    </div>
+
+                    <div class="share-post">
+                        <span style="font-weight: 600;">Share this story:</span>
+                        <div class="share-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
+                </a>
+                <p>Bringing the timeless heritage of Maharashtra to life through carefully curated, premium travel
+                    experiences. Your gateway to Ajanta, Ellora, and beyond.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="tours.html">All Tours</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="tours.html">Heritage Tours</a></li>
+                    <li><a href="taxi-rental.html">Taxi Rental</a></li>
+                    <li><a href="guide-booking.html">Guide Services</a></li>
+                    <li><a href="contact.html">Customized Planning</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Contact</h4>
+                <ul class="footer-links">
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-map-marker-alt"
+                            style="color: var(--primary); margin-right: 10px;"></i> Chhatrapati
+                        Sambhajinagar,Maharashtra</li>
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-phone-alt"
+                            style="color: var(--primary); margin-right: 10px;"></i> +91 95957 77723</li>
+                    <li style="margin-bottom: 1rem; color: var(--text-muted);"><i class="fas fa-envelope"
+                            style="color: var(--primary); margin-right: 10px;"></i> info@ajantaelloraodyssey.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AjantaElloraOdyssey.com Tours & Travels. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Sticky Button -->
+    <a href="https://wa.me/919595777723" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp Chat" title="Open WhatsApp Chat">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">Chat with Us</span>
+    </a>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script src="js/blog-post.js"></script>
+</body>
+
+</html>

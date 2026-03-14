@@ -173,6 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, revealOptions);
 
+        window.observer = revealOnScroll; // Expose to window for dynamic content
+
         revealElements.forEach(el => {
             revealOnScroll.observe(el);
         });

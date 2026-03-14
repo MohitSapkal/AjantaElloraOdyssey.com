@@ -31,8 +31,8 @@ for file in html_files:
     # Replace Navigation
     new_content = re.sub(rb'<!-- Navigation -->\s*<nav class="navbar">.*?</nav>', nav_html, content, flags=re.DOTALL)
     
-    # Replace Footer (handle some pages that might not have <!-- Footer --> but rather just <footer class="footer">, let's just do standard)
-    new_content = re.sub(rb'<!-- Footer -->\s*<footer class="footer">.*?</footer>', footer_html, new_content, flags=re.DOTALL)
+    # Replace Footer (more flexible regex)
+    new_content = re.sub(rb'(<!-- Footer -->\s*)?<footer class="footer">.*?</footer>', footer_html, new_content, flags=re.DOTALL)
     
     if new_content != content:
         with open(file, 'wb') as f:

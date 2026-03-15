@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.textContent = 'Publishing...';
         message.textContent = '';
 
-        const apiUrl = '/api/blogs';
+        const apiUrl = window.location.port && window.location.port !== '5000' ? 'http://localhost:5000/api/blogs' : '/api/blogs';
 
         try {
             const response = await fetch(apiUrl, {

@@ -13,151 +13,136 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
         .blog-header {
-            padding: 120px 0 60px;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('images/hero-bg.png') center/cover no-repeat;
-            color: white;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('images/blog-ajanta.png') center/cover no-repeat;
+            padding: 160px 0 100px;
             text-align: center;
+            color: var(--text-light);
         }
 
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
-            padding: 60px 0;
+            margin-top: 4rem;
         }
 
         .blog-card {
             background: var(--bg-card);
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+            border: 1px solid var(--border-light);
             display: flex;
             flex-direction: column;
-            height: 100%;
         }
 
         .blog-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
         }
 
         .blog-card-img {
             width: 100%;
             height: 240px;
             object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .blog-card:hover .blog-card-img {
+            transform: scale(1.05);
         }
 
         .blog-card-content {
-            padding: 1.5rem;
+            padding: 2rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
-        .blog-tag {
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 4px 12px;
-            border-radius: 20px;
+        .blog-category {
             font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
             font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .blog-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: var(--text-main);
-            font-family: 'Playfair Display', serif;
             line-height: 1.3;
         }
 
         .blog-excerpt {
             color: var(--text-muted);
             font-size: 0.95rem;
-            line-height: 1.6;
             margin-bottom: 1.5rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            line-height: 1.6;
+            flex-grow: 1;
         }
 
-        .blog-meta {
+        .blog-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-light);
             font-size: 0.85rem;
             color: var(--text-muted);
         }
 
-        .blog-author {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .blog-author i {
+        .read-more {
             color: var(--primary);
-        }
-
-        .load-more-container {
-            text-align: center;
-            padding-bottom: 60px;
-        }
-
-        #empty-state {
-            text-align: center;
-            padding: 100px 0;
-            color: var(--text-muted);
-        }
-
-        .delete-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255, 68, 68, 0.9);
-            color: white;
-            border: none;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 5;
-            opacity: 0;
+            gap: 0.5rem;
         }
 
-        .blog-card:hover .delete-btn {
-            opacity: 1;
+        .read-more:hover {
+            gap: 0.8rem;
         }
 
-        .delete-btn:hover {
-            background: rgb(255, 0, 0);
-            transform: scale(1.1);
+        .newsletter-section {
+            background: var(--secondary);
+            color: var(--text-light);
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 5rem;
+            border-radius: var(--radius-lg);
         }
 
-        @media (max-width: 768px) {
-            .blog-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+        .newsletter-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            font-family: inherit;
+        }
+
+        @media (max-width: 600px) {
+            .newsletter-form {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 
 <body>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar scrolled">
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <img src="images/logo.png" alt="AjantaElloraOdyssey.com" style="height: 70px;">
@@ -179,6 +164,7 @@
                 <li><a href="taxi-rental.html">Taxi Rental</a></li>
                 <li><a href="destinations.html">Destinations</a></li>
                 <li><a href="about.html">About Us</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
                 <li class="nav-enquiry-btn"><a href="enquiry.html" class="btn btn-primary"
                         style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Enquiry Now</a></li>
@@ -191,29 +177,84 @@
 
     <!-- Blog Header -->
     <header class="blog-header">
-        <div class="container">
-            <h1 class="reveal" style="font-size: 3rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Our Daily Blog</h1>
-            <p class="reveal" style="font-size: 1.2rem; max-width: 700px; margin: 0 auto; opacity: 0.9;">Stay updated with the latest stories, travel tips, and cultural insights from the heart of Maharashtra.</p>
+        <div class="container reveal active">
+            <h1 style="font-size: 3.5rem; margin-bottom: 20px;">Our Blogs</h1>
+            <p style="color: var(--primary); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Exploring the timeless stories, architectural wonders, and cultural richness of Maharashtra's UNESCO World Heritage sites.</p>
         </div>
     </header>
 
-    <!-- Blog Listing Section -->
+    <!-- Blog Section -->
     <section class="section">
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                <h2 style="font-family: 'Playfair Display', serif; margin: 0;">Latest Stories</h2>
-                <a href="create-blog.html" class="btn btn-primary" style="padding: 0.8rem 1.5rem;"><i class="fas fa-plus"></i> Create New Post</a>
+            <div class="section-header reveal active" style="text-align: center;">
+                <h2 class="section-title">Latest Blogs</h2>
+                <p class="section-subtitle">Curated Stories for the Discerning Traveler</p>
             </div>
-            <div id="blog-container" class="blog-grid" style="padding-top: 0;">
-                <!-- Blog cards will be injected here -->
-            </div>
-            <div id="empty-state" style="display: none;">
-                <i class="fas fa-newspaper" style="font-size: 4rem; opacity: 0.2; margin-bottom: 1.5rem;"></i>
-                <h2>No blog posts yet</h2>
-                <p>Stay tuned! We're preparing some amazing stories for you.</p>
-            </div>
-            <div id="load-more-btn-container" class="load-more-container" style="display: none;">
-                <button id="load-more-btn" class="btn btn-outline" style="padding: 1rem 3rem;">Load More Posts</button>
+
+            <div class="blog-grid">
+                <!-- Post 1 -->
+                <article class="blog-card reveal active stagger-1">
+                    <div style="overflow: hidden;">
+                        <img src="images/blog-ajanta.png" alt="Ajanta Caves" class="blog-card-img">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Heritage</span>
+                        <h3 class="blog-title">The Secrets of Ajanta: A Journey Through Time</h3>
+                        <p class="blog-excerpt">Discover the mesmerizing Buddhist rock-cut caves that lay hidden for centuries. We explore the intricate murals and the spiritual tranquility that permeates these ancient halls.</p>
+                        <div class="blog-footer">
+                            <span>March 15, 2026</span>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="blog-card reveal active stagger-2">
+                    <div style="overflow: hidden;">
+                        <img src="images/blog-kailasa.png" alt="Kailasa Temple" class="blog-card-img">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Architecture</span>
+                        <h3 class="blog-title">Ellora's Kailasa Temple: The Monolithic Wonder</h3>
+                        <p class="blog-excerpt">Carved from the top down out of a single volcanic basalt rock, the Kailasa temple remains one of the world's most incredible architectural feats.</p>
+                        <div class="blog-footer">
+                            <span>March 12, 2026</span>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="blog-card reveal active stagger-3">
+                    <div style="overflow: hidden;">
+                        <img src="images/blog-market.png" alt="Aurangabad Market" class="blog-card-img">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Culture</span>
+                        <h3 class="blog-title">The Vibrant Markets of Aurangabad</h3>
+                        <p class="blog-excerpt">Beyond the caves lies a city of textiles and spices. Join us as we explore the bustling bazaars and discover the heritage of Himroo weaving.</p>
+                        <div class="blog-footer">
+                            <span>March 10, 2026</span>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="blog-card reveal active stagger-4">
+                    <div style="overflow: hidden;">
+                        <img src="images/blog-lonar.png" alt="Lonar Crater" class="blog-card-img">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Nature</span>
+                        <h3 class="blog-title">Stargazing at Lonar: A Cosmic Encounter</h3>
+                        <p class="blog-excerpt">Experience the unique geological wonder of the Lonar crater lake, where science and mythology converge under a canopy of stars.</p>
+                        <div class="blog-footer">
+                            <span>March 05, 2026</span>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -240,8 +281,8 @@
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="tours.html">All Tours</a></li>
                     <li><a href="blog.html">Blog</a></li>
+                    <li><a href="tours.html">All Tours</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
@@ -275,14 +316,14 @@
     </footer>
 
     <!-- WhatsApp Sticky Button -->
-    <a href="https://wa.me/919595777723" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp Chat" title="Open WhatsApp Chat">
+    <a href="https://wa.me/919595777723" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        aria-label="Open WhatsApp Chat" title="Open WhatsApp Chat">
         <i class="fab fa-whatsapp"></i>
         <span class="tooltip">Chat with Us</span>
     </a>
 
     <!-- Custom JS -->
     <script src="js/script.js"></script>
-    <script src="js/blog.js"></script>
 </body>
 
 </html>

@@ -10,11 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             // Try relative fetch first
             let response = await fetch(`/api/blogs?page=${page}&limit=${limit}`);
-            
-            // If it fails (e.g. 404 because of port mismatch), try absolute fallback
-            if (!response.ok && window.location.port !== '5000') {
-                response = await fetch(`http://localhost:5000/api/blogs?page=${page}&limit=${limit}`);
-            }
 
             const data = await response.json();
 
@@ -36,22 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Error fetching blogs:', error);
             
-            // Fallback attempt for connection errors (e.g. CORS or network)
-            if (page === 1 && !window.location.href.includes('localhost:5000')) {
-                try {
-                    const response = await fetch(`http://localhost:5000/api/blogs?page=${page}&limit=${limit}`);
-                    const data = await response.json();
-                    if (data.blogs) {
-                        renderBlogs(data.blogs);
-                        return;
-                    }
-                } catch (fallbackError) {
-                    console.error('Fallback fetch failed:', fallbackError);
-                }
-            }
+
 
             if (page === 1) {
-                blogContainer.innerHTML = '<p class="text-center" style="padding: 2rem; background: #fff; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">Failed to load blogs. Please ensure the server is running on <a href="http://localhost:5000/blog.html">http://localhost:5000</a>.</p>';
+                blogContainer.innerHTML = '<p class="text-center" style="padding: 2rem; background: #fff; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">Failed to load blogs. Please try again later.</p>';
             }
         }
     }
@@ -95,13 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         let response = await fetch(`/api/blogs/${blog._id}`, {
                             method: 'DELETE'
                         });
-
-                        // Fallback fallback
-                        if (!response.ok && window.location.port !== '5000') {
-                            response = await fetch(`http://localhost:5000/api/blogs/${blog._id}`, {
-                                method: 'DELETE'
-                            });
-                        }
 
                         if (response.ok) {
                             alert('Blog post deleted successfully!');
